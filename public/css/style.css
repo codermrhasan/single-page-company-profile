@@ -1,0 +1,950 @@
+/*******************************************--
+# General
+******************************************--*/
+
+body {
+    background: #fff;
+    color: #444;
+    font-family: "Open Sans", sans-serif;
+}
+
+a {
+    color: #007bff;
+    transition: 0.5s;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #0b6bd3;
+    outline: none;
+    text-decoration: none;
+}
+
+p {
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+
+/* Back to top button */
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    background: #007bff;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 1;
+    font-size: 16px;
+    border-radius: 50%;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+    z-index: 11;
+}
+
+.back-to-top i {
+    padding-top: 12px;
+    color: #fff;
+}
+
+
+/* Prelaoder */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+}
+
+#preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #f2f2f2;
+    border-top: 6px solid #007bff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-preloader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/*******************************************--
+# Header
+******************************************--*/
+
+#header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+    height: 72px;
+    transition: all 0.5s;
+}
+
+#header.header-scrolled {
+    background: rgba(2, 0, 36, 1);
+    transition: all 0.5s;
+}
+
+#header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 40px;
+}
+
+#header #logo h1 {
+    font-size: 34px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#header #logo h1 a,
+#header #logo h1 a:hover {
+    color: #fff;
+}
+
+
+/*******************
+intro
+*************/
+
+#intro {
+    display: table;
+    width: 100%;
+    height: 80vh;
+    background: #000;
+}
+
+#intro .carousel-item {
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#intro .carousel-item::before {
+    content: '';
+    background-color: rgba(0, 11, 53, 0.4);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#intro .carousel-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#intro .carousel-background img {
+    max-width: 100%;
+}
+
+#intro .carousel-content {
+    text-align: center;
+}
+
+#intro h2 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#intro p {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    color: #fff;
+}
+
+#intro .carousel-fade {
+    overflow: hidden;
+}
+
+#intro .carousel-fade .carousel-inner .carousel-item {
+    transition-property: opacity;
+}
+
+#intro .carousel-fade .carousel-inner .carousel-item,
+#intro .carousel-fade .carousel-inner .active.carousel-item-left,
+#intro .carousel-fade .carousel-inner .active.carousel-item-right {
+    opacity: 0;
+}
+
+#intro .carousel-fade .carousel-inner .active,
+#intro .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+#intro .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#intro .carousel-fade .carousel-inner .carousel-item-next,
+#intro .carousel-fade .carousel-inner .carousel-item-prev,
+#intro .carousel-fade .carousel-inner .active.carousel-item-left,
+#intro .carousel-fade .carousel-inner .active.carousel-item-right {
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+#intro .carousel-control-prev,
+#intro .carousel-control-next {
+    width: 10%;
+}
+
+#intro .carousel-control-next-icon,
+#intro .carousel-control-prev-icon {
+    background: none;
+    font-size: 32px;
+    line-height: 1;
+}
+
+#intro .carousel-indicators {
+    margin: auto;
+    margin-bottom: 0;
+    height: auto;
+    min-height: 50px;
+    width: 80vw;
+    max-width: auto;
+}
+
+#intro .carousel-indicators button {
+    width: 150px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 130%;
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.85;
+    padding: 0;
+}
+
+#intro .carousel-indicators .odd {
+    background: rgb(26, 26, 26);
+}
+
+#intro .carousel-indicators .even {
+    background: rgb(66, 66, 66);
+}
+
+#intro ol button:hover {
+    cursor: pointer;
+    transform: scale(1.3, 1.5) translate(0, -7px);
+    transition-duration: 0.5s;
+    z-index: 1000;
+}
+
+#intro ol .active {
+    transform: scale(1.3, 1.5) translate(0, -7px);
+    transition-duration: 0.5s;
+    z-index: 1000;
+}
+
+
+/************ brief section
+******************************/
+
+#brief {
+    padding: 20px;
+    color: white;
+    min-height: 50vh;
+    background: linear-gradient(90deg, rgb(1, 0, 29) 0%, rgb(0, 14, 90) 40%, rgb(1, 0, 29) 100%);
+}
+
+#brief .elements {
+    padding: 10px;
+}
+
+#brief img {
+    max-height: 30vh;
+    border-radius: 50%;
+}
+
+#brief .brief-text {
+    padding-top: 40px;
+}
+
+
+/*******************************************--
+# Navigation Menu
+******************************************--*/
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow-y: auto;
+    left: -260px;
+    width: 260px;
+    padding-top: 18px;
+    background: rgba(34, 34, 34, 0.8);
+    transition: 0.4s;
+}
+
+.nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu .upper {
+    padding-top: 72px;
+}
+
+.nav-menu a {
+    display: block;
+    position: relative;
+    color: #005dc0;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu .active>a,
+.nav-menu li:hover>a {
+    color: #268fff;
+    text-decoration: none;
+}
+
+.nav-menu .drop-down>a {
+    padding-right: 35px;
+}
+
+.nav-menu .drop-down ul {
+    display: none;
+    overflow: hidden;
+}
+
+.nav-menu .drop-down li {
+    padding-left: 20px;
+}
+
+.nav-menu-active {
+    left: 0;
+}
+
+.nav-toggle {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    z-index: 9998;
+    border: 0;
+    background: rgba(34, 34, 34, 0.5);
+    transition: all 0.4s;
+    outline: none !important;
+    line-height: 1;
+    cursor: pointer;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 2px;
+}
+
+.nav-toggle i {
+    color: #fff;
+    font-size: 18px;
+}
+
+.nav-toggle-active {
+    left: 275px;
+}
+
+
+/*******************************************--
+# Sections
+******************************************--*/
+
+
+/* Section with background
+*********************--*/
+
+.section-bg {
+    background: #ecf5ff;
+}
+
+
+/* features Section
+*********************--*/
+
+#features {
+    background: #fff;
+    padding: 60px 0;
+}
+
+#features .features-container .background {
+    margin: 20px 0;
+}
+
+#features .features-container .content {
+    background: #fff;
+}
+
+#features .features-container .title {
+    color: #333;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+#features .features-container p {
+    line-height: 26px;
+}
+
+#features .features-container p:last-child {
+    margin-bottom: 0;
+}
+
+#features .features-container .icon-box {
+    background: #fff;
+    background-size: cover;
+    padding: 0 0 30px 0;
+}
+
+#features .features-container .icon-box .icon {
+    float: left;
+    background: #fff;
+    width: 64px;
+    height: 64px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    transition: all 0.3s ease-in-out;
+}
+
+#features .features-container .icon-box .icon i {
+    color: #007bff;
+    font-size: 24px;
+}
+
+#features .features-container .icon-box:hover .icon {
+    background: #007bff;
+}
+
+#features .features-container .icon-box:hover .icon i {
+    color: #fff;
+}
+
+#features .features-container .icon-box .title {
+    margin-left: 80px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+#features .features-container .icon-box .title a {
+    color: #283d50;
+}
+
+#features .features-container .icon-box .description {
+    margin-left: 80px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+#features .features-extra {
+    padding-top: 60px;
+}
+
+#features .features-extra h4 {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+
+/* Portfolio Section
+*********************--*/
+
+#portfolio {
+    background: url("../img/banners/parallax1.png") center top no-repeat fixed;
+    background-size: cover;
+    padding: 60px 0 40px 0;
+    position: relative;
+    z-index: 9;
+}
+
+#portfolio::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9;
+}
+
+#portfolio .container {
+    position: relative;
+    z-index: 10;
+}
+
+#portfolio h3 {
+    color: white;
+}
+
+#portfolio #portfolio-flters {
+    padding: 0;
+    margin: 5px 0 35px 0;
+    list-style: none;
+    text-align: center;
+}
+
+#portfolio #portfolio-flters li {
+    cursor: pointer;
+    margin: 15px 15px 15px 0;
+    display: inline-block;
+    padding: 6px 20px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #007bff;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: #ecf5ff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+#portfolio #portfolio-flters li:hover,
+#portfolio #portfolio-flters li.filter-active {
+    background: #007bff;
+    color: #fff;
+}
+
+#portfolio #portfolio-flters li:last-child {
+    margin-right: 0;
+}
+
+#portfolio .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+#portfolio .portfolio-item .portfolio-wrap {
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+    margin: 0;
+}
+
+#portfolio .portfolio-item .portfolio-wrap:hover img {
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 {
+    font-size: 22px;
+    line-height: 1px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 0;
+    color: #fff;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info p {
+    padding: 0;
+    margin: 0;
+    color: #e2effe;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview,
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details {
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    background: #007bff;
+    border-radius: 50%;
+    margin: 10px 4px 0 4px;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview i,
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details i {
+    padding-top: 6px;
+    font-size: 22px;
+    color: #fff;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover,
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover {
+    background: #3395ff;
+}
+
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover i,
+#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover i {
+    color: #fff;
+}
+
+#portfolio .portfolio-item .portfolio-wrap:hover {
+    background: #003166;
+}
+
+#portfolio .portfolio-item .portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+}
+
+
+/* products
+*/
+
+#products {
+    padding: 60px 0;
+    background: #fff;
+}
+
+#products .section-header h3,
+h4,
+#products .section-header p {
+    color: rgb(0, 49, 102);
+}
+
+#products .product-group {
+    padding-top: 4rem;
+}
+
+#products .card {
+    background: #00458f;
+    border-color: #00458f;
+    border-radius: 10px;
+    margin: 0 15px;
+    padding: 15px 0;
+    text-align: center;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+    height: 100%;
+}
+
+#products .card:hover {
+    background: #003166;
+    border-color: rgb(0, 49, 102);
+}
+
+#products .card i {
+    font-size: 48px;
+    padding-top: 15px;
+    color: #bfddfe;
+}
+
+#products .card h5 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#products .card p {
+    font-size: 15px;
+    color: #d8eafe;
+}
+
+#products .card .readmore {
+    color: #fff;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+    border-bottom: #00458f solid 2px;
+}
+
+#products .card .readmore:hover {
+    border-bottom: #fff solid 2px;
+}
+
+#products .counters {
+    padding-top: 40px;
+}
+
+#products .counters span {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    display: block;
+    color: #fff;
+}
+
+#products .counters p {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #cce5ff;
+}
+
+
+/* Product Specification
+********************************/
+
+#product-spec {
+    background: url("../img/banners/parallax2.jpg") center top no-repeat fixed;
+    background-size: cover;
+    padding: 60px 0 40px 0;
+    position: relative;
+    z-index: 9;
+}
+
+#product-spec::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9;
+}
+
+#product-spec .container {
+    position: relative;
+    z-index: 10;
+}
+
+#product-spec h3 {
+    color: white;
+}
+
+#product-spec .card {
+    display: block;
+    height: 250px;
+    overflow-y: auto;
+}
+
+#product-spec table {
+    background-color: rgb(193, 193, 255);
+    color: rgb(82, 82, 82);
+    min-width: 100%;
+    height: 100px;
+    overflow-y: auto;
+}
+
+#product-spec table th,
+td {
+    text-align: center;
+    padding: 5px;
+    border: 0.5px solid rgb(193, 193, 255);
+}
+
+
+/*******************************************--
+# Footer
+******************************************--*/
+
+#footer {
+    background: rgba(2, 0, 36, 1);
+    padding: 0 0 30px 0;
+    color: #eee;
+    font-size: 14px;
+}
+
+#footer .footer-top {
+    background: rgb(0, 18, 88);
+    padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+    margin-bottom: 30px;
+}
+
+#footer .more-info,
+.footer-contact {
+    padding-bottom: 40px;
+}
+
+#footer .more-info th {
+    text-align: left;
+}
+
+#footer .more-info td {
+    text-align: left;
+    padding-left: 20px;
+}
+
+#footer .footer-top h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#footer .footer-top .footer-contact {
+    margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-contact p {
+    line-height: 26px;
+}
+
+#footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+/*******************************************--
+# Responsive Media Queries
+******************************************--*/
+
+@media (max-width: 991px) {
+    #products .card {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    #brief {
+        background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(0, 30, 196, 1) 40%, rgba(2, 0, 36, 1) 100%);
+    }
+}
+
+@media (max-width: 767px) {
+    .section-header p {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #header #logo {
+        padding-left: 60px;
+    }
+    #intro p {
+        width: 60%;
+    }
+    #intro .carousel-control-prev,
+    #intro .carousel-control-next {
+        width: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    #header #logo img {
+        max-height: 40px;
+    }
+    #intro h2 {
+        font-size: 28px;
+    }
+}
